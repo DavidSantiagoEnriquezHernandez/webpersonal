@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{%block title%}Road{% endblock%}
+
+{%block background%}{%load static %}{%static 'core/img/portfolio-bg.jpg' %}{%endblock%}
+
+{% block headers %}
+<h1>My work</h1>
+<span class="subheading">Some of the work I have done</span>
+{%endblock%}
+
+{%block content%}
+{% for work in works %}
+<main class = 'container card card-body'>
+            <div class="row project">  	
+                <div class="col-lg-3 col-md-4 offset-lg-1">
+                <img class="img-fluid mt-3 justify-content-between " src="{{work.image.url}}" alt="">
+                </div>
+            <div class="col-lg-7 col-md-8">
+                <h2 class="section-heading title">{{work.title}}</h2>   
+                <p>{{work.description}}</p>
+                {%if work.link%}
+                    <p><a href="{{work.link}}"> Link to repo </a></p>
+                {% endif %}
+            </div>
+            </div>
+            </main> 
+
+    {% endfor %}
+<!-- Proyecto -->
+
+{% endblock%}
